@@ -1,36 +1,34 @@
 import MyForm from './item.jsx';
-import { render, fireEvent } from '@testing-library/react';
-import Adapter from 'enzyme-adapter-react-15';
-import {configure, mount, shallow} from 'enzyme'
+import { render, fireEvent, setup } from '@testing-library/react';
 
 import React from 'react'
 
 
 describe('item', ()=> {
 
-    beforeAll(() => {
-        configure({ adapter: new Adapter() });
-    });
-
     test('canary', ()=> {
         expect(true).toEqual(true);
     });
 
     test('expect change name field change name state', () => {
-        var dom = shallow(<MyForm />);
-        fireEvent.click(document.getElementById("name"));
-        expect(document.querySelector("input#name")).toBe('A');
+        var form = render(<MyForm />);
+        const nameInput = form.getByTestId('name');
+        //const name = setup(form, 'name');
+        fireEvent.change(nameInput, { target: { value: 'Bob Trufant' } });
+
+        const nameDisplay = form.getByTestId('nameDisplay');
+        expect(nameDisplay.textContent).toContain('Bob Trufant');
     });
 
-    test('expect change size field change size state', () => {
-        var form = render(<MyForm />);
-        form.find('input');
-        expect(form.state.name).toEqual('abcdefg');
-    });
+    // test('expect change size field change size state', () => {
+    //     var form = render(<MyForm />);
+    //     form.find('input');
+    //     expect(form.state.name).toEqual('abcdefg');
+    // });
 
-    test('expect change size field change size state', () => {
-        var form = render(<MyForm />);
-        form.find('input');
-        expect(form.state.name).toEqual('abcdefg');
-    });
+    // test('expect change size field change size state', () => {
+    //     var form = render(<MyForm />);
+    //     form.find('input');
+    //     expect(form.state.name).toEqual('abcdefg');
+    // });
 });

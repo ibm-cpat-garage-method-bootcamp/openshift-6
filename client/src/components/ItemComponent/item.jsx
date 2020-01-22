@@ -29,11 +29,12 @@ export default class MyForm extends React.Component {
     return (
       <form onSubmit={this.mySubmitHandler}>
       <h1>Enter list</h1>
-      <h1>Hello {this.state.name}</h1>
+      <h1 data-testid='nameDisplay'>Hello {this.state.name}</h1>
+      <h1>Comment {this.state.comment}</h1>
       <p>Enter your name, and submit:</p>
       <input
         type='text'
-        id="name"
+        data-testid="name"
         onChange={this.myNameHandler}
       />
       <input

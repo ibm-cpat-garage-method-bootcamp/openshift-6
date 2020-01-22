@@ -1,4 +1,4 @@
-const item = require('./listjsx');
+const item = require('./list.jsx');
 
 describe('list', ()=> {
     test('canary', ()=> {
