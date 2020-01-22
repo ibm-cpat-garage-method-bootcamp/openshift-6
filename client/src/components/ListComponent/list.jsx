@@ -113,7 +113,6 @@ class TableList extends Component {
               </StructuredListHead>
 
               <StructuredListBody data-testid="body">
-                data-test
                 {data.map((row, i) => {
                   return this.renderRow(row, i);
                 })}
