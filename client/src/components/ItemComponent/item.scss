@@ -5,3 +5,19 @@
     box-shadow: 8px -4px 17px -5px #000000;
     position: absolute;
 }
+
+.field {
+    float:right;
+    margin: 10px;
+    padding-right: 9vw;
+}
+
+#submit {
+    float: right;
+    margin: 0 50px;
+    display: block;
+} 
+
+input {
+    display: inline;
+}
