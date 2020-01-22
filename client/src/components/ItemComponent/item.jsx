@@ -31,6 +31,7 @@ export default class MyForm extends React.Component {
       <h1>Enter list</h1>
       <h1 data-testid='nameDisplay'>Hello {this.state.name}</h1>
       <h1>Comment {this.state.comment}</h1>
+      <h1 data-testid='sizeDisplay'>Size {this.state.size}</h1>
       <p>Enter your name, and submit:</p>
       <input
         type='text'
@@ -39,6 +40,7 @@ export default class MyForm extends React.Component {
       />
       <input
         type='text'
+        data-testid="size"
         onChange={this.mySizeHandler}
       />
       <input

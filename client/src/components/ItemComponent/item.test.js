@@ -13,11 +13,19 @@ describe('item', ()=> {
     test('expect change name field change name state', () => {
         var form = render(<MyForm />);
         const nameInput = form.getByTestId('name');
-        //const name = setup(form, 'name');
         fireEvent.change(nameInput, { target: { value: 'Bob Trufant' } });
 
         const nameDisplay = form.getByTestId('nameDisplay');
         expect(nameDisplay.textContent).toContain('Bob Trufant');
+    });
+
+    test('expect change size field change size state', () => {
+        var form = render(<MyForm />);
+        const sizeInput = form.getByTestId('size');
+        fireEvent.change(sizeInput, { target: { value: '16 oz' } });
+
+        const sizeDisplay = form.getByTestId('sizeDisplay');
+        expect(sizeDisplay.textContent).toContain('16 oz');
     });
 
     // test('expect change size field change size state', () => {
