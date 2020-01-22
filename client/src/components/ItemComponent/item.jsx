@@ -33,23 +33,23 @@ export default class MyForm extends React.Component {
       <div id="container">
         <form onSubmit={this.mySubmitHandler}>
           <h1>Enter Item</h1>
-          <div class="field">
-            <span data-testid='nameDisplay'>Name: {this.state.name}</span>
+          <div className="field">
+            <span>Name: </span>
             <input
               type='text'
               data-testid="name"
               onChange={this.myNameHandler}
             />
           </div>
-          <div class="field">
-            <span>Comment {this.state.comment}</span>
+          <div className="field">
+            <span>Comment: </span>
             <input
               type='text'
               onChange={this.myCommentHandler}
             />
           </div>
-          <div class="field">
-            <span data-testid='sizeDisplay'>Size {this.state.size}</span>
+          <div className="field">
+            <span data-testid='sizeDisplay'>Size: </span>
             <input
               type='text'
               data-testid="size"

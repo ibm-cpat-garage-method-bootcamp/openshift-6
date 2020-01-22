@@ -9,12 +9,6 @@ describe('item', ()=> {
         expect(true).toEqual(true);
     });
 
-    test('expect change name field change name state', () => {
-        var dom = render(document.getElementById("name"));
-        fireEvent.change(dom, { target: { value: 'a' } })
-        expect(dom).toBeInTheDocument()
-    });
-
     test('expect change size field change size state', () => {
         var form = render(<MyForm />);
         const nameInput = form.getByTestId('name');
