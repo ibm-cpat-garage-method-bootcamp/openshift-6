@@ -11,6 +11,7 @@ import {
 import { iconCheckmarkSolid } from "carbon-icons";
 import Header from "../../pattern-components/Header";
 import "../../pattern-components/patterns.scss";
+import CommentForm from "./CommentForm.jsx"
 
 class TableList extends Component {
   title = 'Table List';
@@ -21,18 +22,18 @@ class TableList extends Component {
     {
       Name: "Bread",
       Size: "Medium",
-      Comments:"lo0ikoik,o"
+      Comments:"Get white bread"
     },
     {
         Name: "Milk",
         Size: "Half-Gallon",
-        Comments:"lo0ikoik,o"
+        Comments:"Get last expiration date"
 
     },
     {
         Name: "Eggs",
         Size: "Dozen",
-        Comments:"lo0ikoik,o"
+        Comments:"Make sure eggs are not cracked"
     }
   ];
 
@@ -76,23 +77,11 @@ class TableList extends Component {
         </div>
         {this.columns.map(col => {
           const format = function(val) { return val; };
-          if(col != "Comments"){
-                return (
-                <StructuredListCell key={col} className="simple-list-row">
-                {format(row[col])}
-
-                </StructuredListCell>
-                );
-          }
-          else{
-                return (              
-                    <form>
-                        <input type="text" name="name" />
-                    <input type="submit" value="Submit" />
-                    </form>
-
-                );
-            }
+          return (
+            <StructuredListCell key={col} className="simple-list-row">
+              {format(row[col])}
+            </StructuredListCell>
+          );
         })}
       </StructuredListRow>
     );
@@ -137,5 +126,4 @@ class TableList extends Component {
   }
 }
 
-  
 export default TableList;
