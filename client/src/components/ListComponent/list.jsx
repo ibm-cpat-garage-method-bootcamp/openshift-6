@@ -16,37 +16,23 @@ class TableList extends Component {
   title = 'Table List';
   subtitle = 'This pattern will display and array of model objects in a multi column grid/table.';
 
-  columns = ['Name', 'Address', 'City', 'State', 'ZipCode', 'Country'];
-  formatters = {
-    'ZipCode': function(val) {
-      return val + '-0000';
-    }
-  };
-
+  columns = ['Name', 'Size', 'Comments'];
   data = [
     {
-      Name: "Lin",
-      Address: "123 Main Street",
-      City: "Austin",
-      State: "TX",
-      ZipCode: "12345",
-      Country: "United States"
+      Name: "Bread",
+      Size: "Medium",
+      Comments:"lo0ikoik,o"
     },
     {
-      Name: "Mak",
-      Address: "45 2nd Street",
-      City: "Austin",
-      State: "TX",
-      ZipCode: "78766",
-      Country: "United States"
+        Name: "Milk",
+        Size: "Half-Gallon",
+        Comments:"lo0ikoik,o"
+
     },
     {
-      Name: "Joe",
-      Address: "40 Down Street",
-      City: "San Francisco",
-      State: "CA",
-      ZipCode: "90706",
-      Country: "United States"
+        Name: "Eggs",
+        Size: "Dozen",
+        Comments:"lo0ikoik,o"
     }
   ];
 
@@ -89,13 +75,24 @@ class TableList extends Component {
           </StructuredListCell>
         </div>
         {this.columns.map(col => {
-          const format = this.formatters[col] || function(val) { return val; };
+          const format = function(val) { return val; };
+          if(col != "Comments"){
+                return (
+                <StructuredListCell key={col} className="simple-list-row">
+                {format(row[col])}
 
-          return (
-            <StructuredListCell key={col} className="simple-list-row">
-              {format(row[col])}
-            </StructuredListCell>
-          );
+                </StructuredListCell>
+                );
+          }
+          else{
+                return (              
+                    <form>
+                        <input type="text" name="name" />
+                    <input type="submit" value="Submit" />
+                    </form>
+
+                );
+            }
         })}
       </StructuredListRow>
     );
@@ -140,4 +137,5 @@ class TableList extends Component {
   }
 }
 
+  
 export default TableList;
