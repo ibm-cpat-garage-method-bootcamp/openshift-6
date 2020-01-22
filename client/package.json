@@ -13,6 +13,8 @@
     "babel-plugin-named-asset-import": "^0.2.3",
     "babel-preset-react-app": "^6.1.0",
     "bfj": "6.1.1",
+    "browser-sync": "^2.26.7",
+    "browser-sync-webpack-plugin": "^2.2.2",
     "carbon-components": "^10.3.0",
     "carbon-components-react": "^6.115.5",
     "carbon-icons": "^7.0.7",

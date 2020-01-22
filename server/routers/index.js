@@ -2,6 +2,8 @@
 // Do not modify it as it might get overridden
 module.exports = function(app, server){
 
+    require('../../client/dist/main.js')(app);
+
     require('./public')(app);    
 
     require('./health')(app);
