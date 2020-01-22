@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import "./components/ListComponent/list";
+import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(<TableList></TableList>, document.getElementById("root"));
 
