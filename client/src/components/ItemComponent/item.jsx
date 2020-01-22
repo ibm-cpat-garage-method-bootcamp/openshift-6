@@ -2,29 +2,39 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TableList from '../ListComponent/list';
 import './item.scss';
+var fs = require('fs');
 
 export default class MyForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: '', size: '',  comment: '' };
+    this.state = { Name: '', Size: '',  Comments: '' };
   }
 
   mySubmitHandler = (event) => {
     alert("You are submitting " + Object.entries(this.state));
     console.log("You are submitting " + Object.entries(this.state));
+    var data = this.state;
+    console.log(data);
+    this.writeData(data);
+  }
 
+  writeData = (data) => {
+    var oldData = require('../storeComponent/data.json');
+    var newData = Object.assign({}, data, oldData.data);
+    console.log(oldData.data);
+    fs.writeFileSync('../storeComponent/data.json', newData);
   }
 
   myNameHandler = (event) => {
-    this.setState({name: event.target.value});
+    this.setState({Name: event.target.value});
   }
 
   mySizeHandler = (event) => {
-    this.setState({size: event.target.value});
+    this.setState({Size: event.target.value});
   }
 
   myCommentHandler = (event) => {
-    this.setState({comment: event.target.value});
+    this.setState({Comments: event.target.value});
   }
 
   render() {
