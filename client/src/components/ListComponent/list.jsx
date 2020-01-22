@@ -11,35 +11,18 @@ import {
 import { iconCheckmarkSolid } from "carbon-icons";
 import Header from "../../pattern-components/Header";
 import "../../pattern-components/patterns.scss";
+var db = require("../storeComponent/data.json");
+console.log(db);
 
 class TableList extends Component {
   title = 'Table List';
   subtitle = 'This pattern will display and array of model objects in a multi column grid/table.';
 
   columns = ['Name', 'Size', 'Comments'];
-  data = [
-    {
-      Name: "Bread",
-      Size: "Medium",
-      Comments:"Get white bread"
-    },
-    {
-        Name: "Milk",
-        Size: "Half-Gallon",
-        Comments:"Get last expiration date"
-
-    },
-    {
-        Name: "Eggs",
-        Size: "Dozen",
-        Comments:"Make sure eggs are not cracked"
-    }
-  ];
-
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
+      data: db.data,
       selectedRow: 0,
     };
   }
@@ -47,7 +30,7 @@ class TableList extends Component {
   async componentDidMount() {
 
     this.setState({
-      data: this.data,
+      data: db.data,
     })
   }
 
@@ -57,13 +40,14 @@ class TableList extends Component {
 
   renderRow = (row, id) => {
     return (
-      <StructuredListRow key={id} onClick={() => this.onRowClick(id)} data-testid={id}>
+      <StructuredListRow key={id} onClick={() => this.onRowClick(id)}>
         <div>
           <StructuredListInput
             id={`row-${id}`}
             value="row-0"
             title="row-0"
             name="row-0"
+            data-testid={`row-${id}`}
             //defaultChecked={this.state.selectedRow === id}
             checked={this.state.selectedRow === id}
           />

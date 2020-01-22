@@ -1,0 +1,27 @@
+
+{
+    "data" : [
+        {
+            "Name": "Bread",
+            "Size": "Medium",
+            "Comments":"Get white bread"
+        },
+        {
+            "Name": "Milk",
+            "Size": "Half-Gallon",
+            "Comments":"Get last expiration date"
+
+        },
+        {
+            "Name": "Eggs",
+            "Size": "Dozen",
+            "Comments":"Make sure eggs are not cracked"
+    },
+    {
+        "Name": "Eggs",
+        "Size": "Dozen",
+        "Comments":"Make sure eggs are not cracked"
+}
+]
+}
+  
