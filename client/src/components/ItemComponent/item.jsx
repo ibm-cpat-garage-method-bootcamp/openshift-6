@@ -34,7 +34,7 @@ export default class MyForm extends React.Component {
         <form onSubmit={this.mySubmitHandler}>
           <h1 id="header_list">Enter Item</h1>
           <div className="field">
-            <span data-testid='nameDisplay'>Name: {this.state.name}</span>
+            <span data-testid='nameDisplay'>Name:</span>
             <input
               type='text'
               data-testid="name"
@@ -42,14 +42,14 @@ export default class MyForm extends React.Component {
             />
           </div>
           <div className="field">
-            <span>Comment {this.state.comment}</span>
+            <span>Comment:</span>
             <input
               type='text'
               onChange={this.myCommentHandler}
             />
           </div>
           <div className="field">
-            <span data-testid='sizeDisplay'>Size {this.state.size}</span>
+            <span data-testid='sizeDisplay'>Size: </span>
             <input
               type='text'
               data-testid="size"

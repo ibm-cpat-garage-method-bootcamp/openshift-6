@@ -12,30 +12,19 @@ describe('item', ()=> {
     test('expect change name field change size state', () => {
         var form = render(<MyForm />);
         const nameInput = form.getByTestId('name');
-        fireEvent.change(nameInput, { target: { value: 'Bob Trufant' } });
-
-        const nameDisplay = form.getByTestId('nameDisplay');
-        expect(nameDisplay.textContent).toContain('Bob Trufant');
+        var bob = 'Bob Trufant';
+        fireEvent.change(nameInput, { target: { value: bob } });
+        expect(nameInput.value).toContain(bob);
     });
 
     test('expect change size field change size state', () => {
         var form = render(<MyForm />);
         const sizeInput = form.getByTestId('size');
         fireEvent.change(sizeInput, { target: { value: '16 oz' } });
-
-        const sizeDisplay = form.getByTestId('sizeDisplay');
-        expect(sizeDisplay.textContent).toContain('16 oz');
+        expect(sizeInput.value).toContain('16 oz');
     });
 
-    // test('expect change size field change size state', () => {
-    //     var form = render(<MyForm />);
-    //     form.find('input');
-    //     expect(form.state.name).toEqual('abcdefg');
-    // });
-
-    // test('expect change size field change size state', () => {
-    //     var form = render(<MyForm />);
-    //     form.find('input');
-    //     expect(form.state.name).toEqual('abcdefg');
-    // });
+    test('expect form to be blank after submit', () => {
+        
+    });
 });
