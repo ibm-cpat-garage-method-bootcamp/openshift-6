@@ -25,6 +25,13 @@ describe('item', ()=> {
     });
 
     test('expect form to be blank after submit', () => {
-        
+        var form = render(<MyForm />);
+        const sizeInput = form.getByTestId('size');
+        const nameInput = form.getByTestId('name');
+        const commentInput = form.getByTestId('comment');
+        expect(sizeInput.value).toContain('');
+        expect(nameInput.value).toContain('');
+        expect(commentInput.value).toContain('');
+
     });
 });

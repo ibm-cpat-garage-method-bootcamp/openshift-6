@@ -10,9 +10,9 @@ export default class MyForm extends React.Component {
   }
 
   mySubmitHandler = (event) => {
-    event.preventDefault();
     alert("You are submitting " + Object.entries(this.state));
     console.log("You are submitting " + Object.entries(this.state));
+
   }
 
   myNameHandler = (event) => {
@@ -45,6 +45,7 @@ export default class MyForm extends React.Component {
             <span>Comment:</span>
             <input
               type='text'
+              data-testid="comment"
               onChange={this.myCommentHandler}
             />
           </div>
