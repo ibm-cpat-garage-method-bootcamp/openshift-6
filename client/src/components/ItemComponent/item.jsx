@@ -32,7 +32,7 @@ export default class MyForm extends React.Component {
       <div>
       <div id="container">
         <form onSubmit={this.mySubmitHandler}>
-          <h1>Enter Item</h1>
+          <h1 id="header_list">Enter Item</h1>
           <div className="field">
             <span data-testid='nameDisplay'>Name: {this.state.name}</span>
             <input
