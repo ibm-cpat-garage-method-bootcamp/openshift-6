@@ -6,7 +6,7 @@ describe('item', ()=> {
     });
 
     test('I can input a name for the item', () => {
-        var curValue = item.value;
+        var curValue = item.find('name');
         item.value = 'cereal';
         expect(curValue).not.toEqual(item.value);
     });
