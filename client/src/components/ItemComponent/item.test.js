@@ -1,4 +1,6 @@
-const item = require('./item.jsx');
+import ItemList from './item.jsx';
+import {render} from '@testing-library/react';
+import React from 'react'
 
 describe('item', ()=> {
     test('canary', ()=> {
@@ -6,8 +8,8 @@ describe('item', ()=> {
     });
 
     test('I can input a name for the item', () => {
-        var curValue = item.find('name');
-        item.value = 'cereal';
-        expect(curValue).not.toEqual(item.value);
+        var itemList = render(<ItemList />);
+        var name = document.getElementById("name");
+        expect(name.value).toEqual(itemList.input);
     });
 });

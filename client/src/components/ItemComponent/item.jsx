@@ -1,11 +1,12 @@
 import React from 'react'
 
-var input;
-export default function itemList() {
+export default function ItemList() {
+    var input = "poop";
+
     return (
         <div>
             <form>
-                <input id="name" placeholder="" ref={input}></input>
+                <input id="name" placeholder="" value={input}></input>
             </form>
         </div>
     )
