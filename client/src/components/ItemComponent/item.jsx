@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TableList from '../ListComponent/list';
+import fs from 'fs';
 import './item.scss';
-var fs = require('fs');
+
+import {reactLocalStorage} from 'reactjs-localstorage';
+
 
 export default class MyForm extends React.Component {
   constructor(props) {
@@ -13,16 +16,9 @@ export default class MyForm extends React.Component {
   mySubmitHandler = (event) => {
     alert("You are submitting " + Object.entries(this.state));
     console.log("You are submitting " + Object.entries(this.state));
-    var data = this.state;
+    reactLocalStorage.setObject('data', {'data': this.state});
+    var data = reactLocalStorage.getObject('data');
     console.log(data);
-    this.writeData(data);
-  }
-
-  writeData = (data) => {
-    var oldData = require('../storeComponent/data.json');
-    var newData = Object.assign({}, data, oldData.data);
-    console.log(oldData.data);
-    fs.writeFileSync('../storeComponent/data.json', newData);
   }
 
   myNameHandler = (event) => {
