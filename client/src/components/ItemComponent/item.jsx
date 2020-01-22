@@ -30,28 +30,33 @@ export default class MyForm extends React.Component {
     return (
       <div id="container">
         <form onSubmit={this.mySubmitHandler}>
-          <h1>Enter list</h1>
-          <h1 data-testid='nameDisplay'>Hello {this.state.name}</h1>
-          <h1>Comment {this.state.comment}</h1>
-          <h1 data-testid='sizeDisplay'>Size {this.state.size}</h1>
-          <p>Enter your name, and submit:</p>
-          <input
-            type='text'
-            data-testid="name"
-            onChange={this.myNameHandler}
-          />
-          <input
-            type='text'
-            data-testid="size"
-            onChange={this.mySizeHandler}
-          />
-          <input
-            type='text'
-            onChange={this.myCommentHandler}
-          />
-          <input
-            type='submit'
-          />
+          <h1>Enter Item</h1>
+          <div class="field">
+            <span data-testid='nameDisplay'>Name: {this.state.name}</span>
+            <input
+              type='text'
+              data-testid="name"
+              onChange={this.myNameHandler}
+            />
+          </div>
+          <div class="field">
+            <span>Comment {this.state.comment}</span>
+            <input
+              type='text'
+              onChange={this.myCommentHandler}
+            />
+          </div>
+          <div class="field">
+            <span data-testid='sizeDisplay'>Size {this.state.size}</span>
+            <input
+              type='text'
+              data-testid="size"
+              onChange={this.mySizeHandler}
+            />
+            <br />
+            <br />
+            <input id="submit" type='submit' />
+          </div>
         </form>
       </div>
     );
