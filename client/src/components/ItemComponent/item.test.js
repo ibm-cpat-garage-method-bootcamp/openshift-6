@@ -1,16 +1,32 @@
 import MyForm from './item.jsx';
+<<<<<<< HEAD
 import { render, fireEvent, setup } from '@testing-library/react';
+=======
+import { render, fireEvent } from '@testing-library/react';
+>>>>>>> fixed update
 
 import React from 'react'
 
 
 describe('item', ()=> {
+<<<<<<< HEAD
 
+=======
+>>>>>>> fixed update
     test('canary', ()=> {
         expect(true).toEqual(true);
     });
 
     test('expect change name field change name state', () => {
+<<<<<<< HEAD
+=======
+        var dom = render(document.getElementById("name"));
+        fireEvent.change(dom, { target: { value: 'a' } })
+        expect(dom).toBeInTheDocument()
+    });
+
+    test('expect change size field change size state', () => {
+>>>>>>> fixed update
         var form = render(<MyForm />);
         const nameInput = form.getByTestId('name');
         fireEvent.change(nameInput, { target: { value: 'Bob Trufant' } });
