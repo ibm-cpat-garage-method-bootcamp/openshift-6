@@ -11,7 +11,6 @@ import {
 import { iconCheckmarkSolid } from "carbon-icons";
 import Header from "../../pattern-components/Header";
 import "../../pattern-components/patterns.scss";
-import CommentForm from "./CommentForm.jsx"
 
 class TableList extends Component {
   title = 'Table List';
@@ -58,7 +57,7 @@ class TableList extends Component {
 
   renderRow = (row, id) => {
     return (
-      <StructuredListRow key={id} onClick={() => this.onRowClick(id)}>
+      <StructuredListRow key={id} onClick={() => this.onRowClick(id)} data-testid={id}>
         <div>
           <StructuredListInput
             id={`row-${id}`}
@@ -113,7 +112,8 @@ class TableList extends Component {
                 </StructuredListRow>
               </StructuredListHead>
 
-              <StructuredListBody>
+              <StructuredListBody data-testid="body">
+                data-test
                 {data.map((row, i) => {
                   return this.renderRow(row, i);
                 })}
