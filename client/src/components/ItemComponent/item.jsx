@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './item.scss';
 
 export default class MyForm extends React.Component {
   constructor(props) {
@@ -27,30 +28,32 @@ export default class MyForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.mySubmitHandler}>
-      <h1>Enter list</h1>
-      <h1 data-testid='nameDisplay'>Hello {this.state.name}</h1>
-      <h1>Comment {this.state.comment}</h1>
-      <h1 data-testid='sizeDisplay'>Size {this.state.size}</h1>
-      <p>Enter your name, and submit:</p>
-      <input
-        type='text'
-        data-testid="name"
-        onChange={this.myNameHandler}
-      />
-      <input
-        type='text'
-        data-testid="size"
-        onChange={this.mySizeHandler}
-      />
-      <input
-        type='text'
-        onChange={this.myCommentHandler}
-      />
-      <input
-        type='submit'
-      />
-      </form>
+      <div id="container">
+        <form onSubmit={this.mySubmitHandler}>
+          <h1>Enter list</h1>
+          <h1 data-testid='nameDisplay'>Hello {this.state.name}</h1>
+          <h1>Comment {this.state.comment}</h1>
+          <h1 data-testid='sizeDisplay'>Size {this.state.size}</h1>
+          <p>Enter your name, and submit:</p>
+          <input
+            type='text'
+            data-testid="name"
+            onChange={this.myNameHandler}
+          />
+          <input
+            type='text'
+            data-testid="size"
+            onChange={this.mySizeHandler}
+          />
+          <input
+            type='text'
+            onChange={this.myCommentHandler}
+          />
+          <input
+            type='submit'
+          />
+        </form>
+      </div>
     );
   }
 }
