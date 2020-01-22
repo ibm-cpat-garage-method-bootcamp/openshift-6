@@ -14,11 +14,19 @@ export default class MyForm extends React.Component {
   }
 
   mySubmitHandler = (event) => {
+    event.preventDefault();
+    this.clear();
     alert("You are submitting " + Object.entries(this.state));
     console.log("You are submitting " + Object.entries(this.state));
-    reactLocalStorage.setObject('data', {'data': this.state});
     var data = reactLocalStorage.getObject('data');
     console.log(data);
+    data.push({ Name: '', Size: '121',  Comments: '' });
+    reactLocalStorage.setObject('data', data);
+    console.log(data);
+  }
+
+  clear = () => {
+    this.setState({ Name: '', Size: '',  Comments: '' });
   }
 
   myNameHandler = (event) => {
