@@ -9,8 +9,8 @@ import {
   Icon
 } from "carbon-components-react";
 import { iconCheckmarkSolid } from "carbon-icons";
-import Header from "./Header";
-import "./patterns.scss";
+import Header from "../../pattern-components/Header";
+import "../../pattern-components/patterns.scss";
 
 class TableList extends Component {
   title = 'Table List';
