@@ -34,7 +34,7 @@ export default class MyForm extends React.Component {
         <form onSubmit={this.mySubmitHandler}>
           <h1>Enter Item</h1>
           <div className="field">
-            <span>Name: </span>
+            <span data-testid='nameDisplay'>Name: </span>
             <input
               type='text'
               data-testid="name"
