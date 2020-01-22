@@ -1,5 +1,5 @@
 #container{
-    width:500px;
+    width:30vw;
     height:100%;
     -webkit-box-shadow: 8px -4px 17px -5px #000000; 
     box-shadow: 8px -4px 17px -5px #000000;
@@ -17,6 +17,13 @@
     margin: 0 50px;
     display: block;
 } 
+
+#table_list{
+    position: absolute;
+    left:35vw;
+    z-index: -1;
+    background-color: white;
+}
 
 input {
     display: inline;

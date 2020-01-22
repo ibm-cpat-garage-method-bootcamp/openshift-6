@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import TableList from '../ListComponent/list';
 import './item.scss';
 
 export default class MyForm extends React.Component {
@@ -28,6 +29,7 @@ export default class MyForm extends React.Component {
 
   render() {
     return (
+      <div>
       <div id="container">
         <form onSubmit={this.mySubmitHandler}>
           <h1>Enter Item</h1>
@@ -58,6 +60,10 @@ export default class MyForm extends React.Component {
             <input id="submit" type='submit' />
           </div>
         </form>
+      </div>
+      <div id="table_list">
+        <TableList></TableList>
+      </div>
       </div>
     );
   }
