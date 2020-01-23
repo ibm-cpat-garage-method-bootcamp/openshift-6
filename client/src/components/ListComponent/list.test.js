@@ -22,7 +22,6 @@ describe('list', () => {
         expect(taElement[0].innerHTML).toBe("Bread");
     });
 
-
 	test('Bread is size Medium', () => {
 	    const { getAllByTestId } = render(<TableList />);
 	    const taElement = getAllByTestId("Size");

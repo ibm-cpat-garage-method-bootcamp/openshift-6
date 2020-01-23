@@ -14,9 +14,6 @@ import "../../pattern-components/patterns.scss";
 var db = require("../storeComponent/data.json");
 
 class TableList extends Component {
-  title = 'Table List';
-  subtitle = 'This pattern will display and array of model objects in a multi column grid/table.';
-
   columns = ['Name', 'Size', 'Comments'];
   constructor(props) {
     super(props);
@@ -74,10 +71,6 @@ class TableList extends Component {
 
     return (
       <div className="bx--grid pattern-container">
-        <Header
-          title={this.title}
-          subtitle={this.subtitle}
-        />
         <div className="bx--row">
           <div className="bx--col-xs-12">
             <StructuredListWrapper selection border>
