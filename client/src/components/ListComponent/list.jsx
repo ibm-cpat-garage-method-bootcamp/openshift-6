@@ -60,7 +60,7 @@ class TableList extends Component {
         {this.columns.map(col => {
           const format = function(val) { return val; };
           return (
-            <StructuredListCell key={col} className="simple-list-row">
+            <StructuredListCell key={col} className="simple-list-row" data-testid={col}>
               {format(row[col])}
             </StructuredListCell>
           );
