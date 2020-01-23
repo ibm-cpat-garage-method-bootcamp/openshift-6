@@ -26,7 +26,6 @@ describe('item', () => {
 
 	test('expect form to be blank after submit', () => {
 		var form = render(<MyForm />);
-
 		const sizeInput = form.getByTestId('size');
 		const nameInput = form.getByTestId('name');
 		const commentInput = form.getByTestId('comment');
@@ -34,11 +33,13 @@ describe('item', () => {
 		expect(nameInput.value).toContain('');
 		expect(commentInput.value).toContain('');
 	});
+	/*
 
-	test('it should write to json file', () => {
-		var newItem = { Name: 'Apples', Size: 'dozen', Comments: 'Pink Lady' };
-
-		var lastItem = data.pop();
-		expect(lastItem).toBe(newItem);
-	});
+    test('it should write to json file', () => {
+        var newItem = {Name:"Apples", Size:"dozen", Comments: "Pink Lady"};
+        
+        var lastItem = data.pop();
+        expect(lastItem).toBe(newItem)
+    })
+    */
 });
