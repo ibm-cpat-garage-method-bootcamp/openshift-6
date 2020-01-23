@@ -9,24 +9,28 @@ describe('list', () => {
 		expect(true).toEqual(true);
 	});
 
-	/*
-    test('There are rows in the body', () => {
+
+    test('There are four rows in the body', () => {
         const { getByTestId } = render(<TableList />);
         const taElement = getByTestId("body");
-        expect(taElement.children.length).toBe(3);
+        expect(taElement.children.length).toBe(4);
     });
 
-    test('Text is bread', () => {
-        const { getByTestId } = render(<TableList />);
-        const taElement = getByTestId("body");
-        // console.log(breadRow);
-        expect(breadRow.value).toBe("Bread");
+    test('First item is bread', () => {
+        const { getAllByTestId } = render(<TableList />);
+        const taElement = getAllByTestId("Name");
+        expect(taElement[0].innerHTML).toBe("Bread");
     });
-    */
 
-	// test('There is the bread row in the document', () => {
-	//     const { getByTestId } = render(<TableList />);
-	//     const taElement = getByTestId("Name");
-	//     expect(taElement).toBeInTheDocument();
-	// });
+	test('Bread is size Medium', () => {
+	    const { getAllByTestId } = render(<TableList />);
+	    const taElement = getAllByTestId("Size");
+	    expect(taElement[0].innerHTML).toBe("Medium");
+    });
+    
+    test('Bread comment is white bread', () => {
+	    const { getAllByTestId } = render(<TableList />);
+	    const taElement = getAllByTestId("Comments");
+	    expect(taElement[0].innerHTML).toBe("Get white bread");
+	});
 });
