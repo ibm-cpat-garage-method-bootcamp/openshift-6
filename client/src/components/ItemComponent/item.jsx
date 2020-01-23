@@ -5,6 +5,8 @@ import  { history } from 'react-router-dom'
 
 import './item.scss';
 
+var base64 = require('base-64');
+
 export default class MyForm extends React.Component {
 
   constructor(props) {
@@ -13,10 +15,13 @@ export default class MyForm extends React.Component {
   }
 
   mySubmitHandler = (event) => {
-    event.preventDefault();
-    this.clear();
-    alert("You are submitting " + Object.entries(this.state));
-    console.log(getPath());
+    if(this.state.name !== ''){
+      event.preventDefault();
+      this.clear();
+      appendQuery(this.state);
+      alert(getQuery());
+      console.log(getQuery());
+    }
   }
 
   getPath = () => {
@@ -82,14 +87,21 @@ export default class MyForm extends React.Component {
   }
 }
 
-function getPath(){
-  return window.location.path;
+function getQuery(){
+  let mySearchParams = window.location.search.split('')
+  mySearchParams.shift();
+  mySearchParams = mySearchParams.join('');
+  if(mySearchParams ===  ""){
+    return [];
+  }
+  return JSON.parse(base64.decode(mySearchParams));
+  //remove the /  
 }
 
-function addToPath(obj){
-  var charArr = obj.split('');
-  var queries = window.location.search;
-  //remove the /
-  charArr.shift();
-  
+function appendQuery(obj){
+  console.log(getQuery);
+  var query = getQuery();
+  query.push(obj);
+  var url = "?" + base64.encode(JSON.stringify(query));
+  window.location.search = url;
 }
