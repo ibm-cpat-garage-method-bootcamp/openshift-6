@@ -6,7 +6,7 @@ import {
   StructuredListHead,
   StructuredListBody,
   StructuredListInput,
-  Icon
+  Checkbox
 } from "carbon-components-react";
 import { iconCheckmarkSolid } from "carbon-icons";
 import Header from "../../pattern-components/Header";
@@ -21,7 +21,6 @@ class TableList extends Component {
     super(props);
     this.state = {
       data: getQuery(),
-      selectedRow: 0,
     };
   }
 
@@ -31,14 +30,9 @@ class TableList extends Component {
       data: getQuery(),
     })
   }
-
-  onRowClick = id => {
-    this.setState({ selectedRow: id });
-  };
-
   renderRow = (row, id) => {
     return (
-      <StructuredListRow key={id} onClick={() => this.onRowClick(id)}>
+      <StructuredListRow key={id}>
         <div>
           <StructuredListInput
             id={`row-${id}`}
@@ -47,13 +41,9 @@ class TableList extends Component {
             name="row-0"
             data-testid={`row-${id}`}
             //defaultChecked={this.state.selectedRow === id}
-            checked={this.state.selectedRow === id}
           />
           <StructuredListCell>
-            <Icon
-              className="bx--structured-list-svg"
-              icon={iconCheckmarkSolid}
-            />
+            <Checkbox id= {`checkbox-${id}`} data-testid= {`checkbox-${id}`} labelText="" /> 
           </StructuredListCell>
         </div>
         {this.columns.map(col => {
@@ -111,7 +101,6 @@ function getQuery(){
     return [];
   }
   return JSON.parse(base64.decode(mySearchParams));
-  //remove the /  
 }
 
 
