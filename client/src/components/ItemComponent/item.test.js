@@ -2,7 +2,6 @@ import MyForm from './item.jsx';
 import { render, fireEvent } from '@testing-library/react';
 
 import React from 'react';
-import { data } from '../storeComponent/data.json';
 
 describe('item', () => {
 	test('canary', () => {
@@ -33,13 +32,4 @@ describe('item', () => {
 		expect(nameInput.value).toContain('');
 		expect(commentInput.value).toContain('');
 	});
-	/*
-
-    test('it should write to json file', () => {
-        var newItem = {Name:"Apples", Size:"dozen", Comments: "Pink Lady"};
-        
-        var lastItem = data.pop();
-        expect(lastItem).toBe(newItem)
-    })
-    */
 });
