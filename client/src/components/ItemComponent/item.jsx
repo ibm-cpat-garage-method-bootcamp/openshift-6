@@ -1,14 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TableList from '../ListComponent/list';
+import fs from 'fs';
 import './item.scss';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-var fs = require('fs');
 
 export default class MyForm extends React.Component {
   constructor(props) {
@@ -17,11 +11,15 @@ export default class MyForm extends React.Component {
   }
 
   mySubmitHandler = (event) => {
+    event.preventDefault();
+    this.clear();
     alert("You are submitting " + Object.entries(this.state));
     console.log("You are submitting " + Object.entries(this.state));
-    var data = this.state;
+    var data = reactLocalStorage.getObject('data');
     console.log(data);
-    this.writeData(data);
+    data.push({ Name: '', Size: '121',  Comments: '' });
+    reactLocalStorage.setObject('data', data);
+    console.log(data);
   }
 
   addQuery = (key, value) => {
@@ -35,11 +33,14 @@ export default class MyForm extends React.Component {
              search: searchParams.toString()
        });
    };
+   
   writeData = (data) => {
     var oldData = require('../storeComponent/data.json');
     var newData = Object.assign({}, data, oldData.data);
     console.log(oldData.data);
     fs.writeFileSync('../storeComponent/data.json', newData);
+  clear = () => {
+    this.setState({ Name: '', Size: '',  Comments: '' });
   }
 
   myNameHandler = (event) => {
