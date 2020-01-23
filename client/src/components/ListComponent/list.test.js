@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import TableList from './list.jsx';
 import '@testing-library/jest-dom/extend-expect';
@@ -28,4 +28,29 @@ describe('list', () => {
 	    expect(taElement[0]).not.toBe("");
     });
     */
+
+    // test('Items can be checkmarked', () => {
+	//     const { getByTestId } = render(<TableList />);
+    //     const checkbox = getByTestId("checkbox-0");
+    //     fireEvent.click(checkbox);
+    //     expect(checkbox.checked).toBe(true);
+    // });
+
+    // test('Multiple items can be checkmarked', () => {
+	//     const { getByTestId } = render(<TableList />);
+    //     const checkbox0 = getByTestId("checkbox-0");
+    //     fireEvent.click(checkbox0);
+    //     const checkbox1 = getByTestId("checkbox-1");
+    //     fireEvent.click(checkbox1);
+    //     expect(checkbox0.checked).toBe(true);
+    //     expect(checkbox1.checked).toBe(true);
+    // });
+
+    // test('Items can be unchecked', () => {
+	//     const { getByTestId } = render(<TableList />);
+    //     const checkbox0 = getByTestId("checkbox-0");
+    //     fireEvent.click(checkbox0);
+    //     fireEvent.click(checkbox0);
+    //     expect(checkbox0.checked).toBe(false);
+    // });
 });
