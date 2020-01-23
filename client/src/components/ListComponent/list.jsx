@@ -12,7 +12,6 @@ import { iconCheckmarkSolid } from "carbon-icons";
 import Header from "../../pattern-components/Header";
 import "../../pattern-components/patterns.scss";
 var db = require("../storeComponent/data.json");
-console.log(db);
 
 class TableList extends Component {
   title = 'Table List';
