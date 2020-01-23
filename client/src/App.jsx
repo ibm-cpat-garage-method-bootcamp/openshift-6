@@ -5,11 +5,25 @@ import "./App.scss";
 import DisplayForm from "./pattern-components/DisplayForm";
 import MyForm from './components/ItemComponent/item';
 
+import { 
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
+
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <MyForm></MyForm>
+        <Router>
+          <div className="table-container">
+              <TableList></TableList>
+              <button>add item</button>
+          </div>
+          <Route exact path='/name'>
+
+          </Route>
+        </Router>
       </div>
     );
   }
