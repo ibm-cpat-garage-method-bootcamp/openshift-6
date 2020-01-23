@@ -18,9 +18,8 @@ class App extends Component {
         <Router>
           <div className="table-container">
               <TableList></TableList>
-              <button>add item</button>
           </div>
-          <Route exact path='/form'>
+          <Route exact path='/'>
             <MyForm />
           </Route>
         </Router>

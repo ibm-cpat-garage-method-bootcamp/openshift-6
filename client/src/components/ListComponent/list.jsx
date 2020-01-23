@@ -12,13 +12,15 @@ import { iconCheckmarkSolid } from "carbon-icons";
 import Header from "../../pattern-components/Header";
 import "../../pattern-components/patterns.scss";
 var db = require("../storeComponent/data.json");
+var base64 = require('base-64');
+
 
 class TableList extends Component {
   columns = ['Name', 'Size', 'Comments'];
   constructor(props) {
     super(props);
     this.state = {
-      data: db.data,
+      data: getQuery(),
       selectedRow: 0,
     };
   }
@@ -26,7 +28,7 @@ class TableList extends Component {
   async componentDidMount() {
 
     this.setState({
-      data: db.data,
+      data: getQuery(),
     })
   }
 
@@ -100,5 +102,17 @@ class TableList extends Component {
     );
   }
 }
+
+function getQuery(){
+  let mySearchParams = window.location.search.split('')
+  mySearchParams.shift();
+  mySearchParams = mySearchParams.join('');
+  if(mySearchParams ===  ""){
+    return [];
+  }
+  return JSON.parse(base64.decode(mySearchParams));
+  //remove the /  
+}
+
 
 export default TableList;

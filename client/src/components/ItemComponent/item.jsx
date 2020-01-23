@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TableList from '../ListComponent/list';
-import  { history } from 'react-router-dom'
+import  { history } from 'react-router-dom';
+
 
 import './item.scss';
 
@@ -15,12 +16,15 @@ export default class MyForm extends React.Component {
   }
 
   mySubmitHandler = (event) => {
-    if(this.state.name !== ''){
-      event.preventDefault();
-      this.clear();
+    event.preventDefault();
+
+    if(this.state.Name !== ""){
       appendQuery(this.state);
-      alert(getQuery());
+      this.clear();
       console.log(getQuery());
+    }
+    else{
+      alert("Please input name");
     }
   }
 
@@ -33,7 +37,7 @@ export default class MyForm extends React.Component {
   }
 
   myNameHandler = (event) => {
-    this.setState({Name: event.target.value});
+    this.setState({Name: event.target.value.trim()});
   }
 
   mySizeHandler = (event) => {
@@ -79,9 +83,6 @@ export default class MyForm extends React.Component {
           </div>
         </form>
       </div>
-      <div id="table_list">
-        <TableList></TableList>
-      </div>
       </div>
       )
   }
@@ -94,6 +95,7 @@ function getQuery(){
   if(mySearchParams ===  ""){
     return [];
   }
+  
   return JSON.parse(base64.decode(mySearchParams));
   //remove the /  
 }
@@ -101,7 +103,18 @@ function getQuery(){
 function appendQuery(obj){
   console.log(getQuery);
   var query = getQuery();
-  query.push(obj);
+  var found = false;
+
+  query.forEach(ele => {
+    if(ele.Name === obj.Name){
+      found = true;
+    }
+  });
+
+  if(!found){
+    query.push(obj);
+  }
+  console.log(query);
   var url = "?" + base64.encode(JSON.stringify(query));
   window.location.search = url;
 }
