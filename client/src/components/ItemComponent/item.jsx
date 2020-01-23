@@ -33,7 +33,7 @@ export default class MyForm extends React.Component {
   }
 
   clear = () => {
-    this.setState({ Name: '', Size: '',  Comments: '' });
+    this.setState({ Name: '', Size: '',  Comments: '' , Aisle: '', Store: ''});
   }
 
   myNameHandler = (event) => {
@@ -46,6 +46,14 @@ export default class MyForm extends React.Component {
 
   myCommentHandler = (event) => {
     this.setState({Comments: event.target.value});
+  }
+
+  myStoreHandler = (event) => {
+    this.setState({Store: event.target.value});
+  }
+
+  myAisleHandler = (event) => {
+    this.setState({Aisle: event.target.value});
   }
 
   render() {
@@ -63,19 +71,35 @@ export default class MyForm extends React.Component {
             />
           </div>
           <div className="field">
-            <span>Comment:</span>
-            <input
-              type='text'
-              data-testid="comment"
-              onChange={this.myCommentHandler}
-            />
-          </div>
-          <div className="field">
             <span data-testid='sizeDisplay'>Size: </span>
             <input
               type='text'
               data-testid="size"
               onChange={this.mySizeHandler}
+            />
+          </div>
+          <div className="field">
+            <span>Store:</span>
+            <input
+              type='text'
+              data-testid="comment"
+              onChange={this.myStoreHandler}
+            />
+          </div>
+          <div className="field">
+            <span>Aisle:</span>
+            <input
+              type='text'
+              data-testid="comment"
+              onChange={this.myAisleHandler}
+            />
+          </div>
+          <div className="field">
+            <span>Comment:</span>
+            <input
+              type='text-field'
+              data-testid="comment"
+              onChange={this.myCommentHandler}
             />
             <br />
             <br />
@@ -85,6 +109,7 @@ export default class MyForm extends React.Component {
       </div>
       </div>
       )
+
   }
 }
 
@@ -106,7 +131,7 @@ function appendQuery(obj){
   var found = false;
 
   query.forEach(ele => {
-    if(ele.Name === obj.Name){
+    if(ele.Name === obj.Name && ele.Store === obj.Store){
       found = true;
     }
   });

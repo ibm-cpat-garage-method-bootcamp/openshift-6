@@ -16,7 +16,7 @@ var base64 = require('base-64');
 
 
 class TableList extends Component {
-  columns = ['Name', 'Size', 'Comments'];
+  columns = ['Name', 'Size', 'Comments', 'Store', 'Aisle'];
   constructor(props) {
     super(props);
     this.state = {
