@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TableList from '../ListComponent/list';
-import  { history } from 'react-router-dom'
+import  { history } from 'react-router-dom';
+
 
 import './item.scss';
+
+var base64 = require('base-64');
 
 export default class MyForm extends React.Component {
 
@@ -14,9 +17,15 @@ export default class MyForm extends React.Component {
 
   mySubmitHandler = (event) => {
     event.preventDefault();
-    this.clear();
-    alert("You are submitting " + Object.entries(this.state));
-    console.log(getPath());
+
+    if(this.state.Name !== ""){
+      appendQuery(this.state);
+      this.clear();
+      console.log(getQuery());
+    }
+    else{
+      alert("Please input name");
+    }
   }
 
   getPath = () => {
@@ -28,7 +37,7 @@ export default class MyForm extends React.Component {
   }
 
   myNameHandler = (event) => {
-    this.setState({Name: event.target.value});
+    this.setState({Name: event.target.value.trim()});
   }
 
   mySizeHandler = (event) => {
@@ -74,22 +83,38 @@ export default class MyForm extends React.Component {
           </div>
         </form>
       </div>
-      <div id="table_list">
-        <TableList></TableList>
-      </div>
       </div>
       )
   }
 }
 
-function getPath(){
-  return window.location.path;
+function getQuery(){
+  let mySearchParams = window.location.search.split('')
+  mySearchParams.shift();
+  mySearchParams = mySearchParams.join('');
+  if(mySearchParams ===  ""){
+    return [];
+  }
+  
+  return JSON.parse(base64.decode(mySearchParams));
+  //remove the /  
 }
 
-function addToPath(obj){
-  var charArr = obj.split('');
-  var queries = window.location.search;
-  //remove the /
-  charArr.shift();
-  
+function appendQuery(obj){
+  console.log(getQuery);
+  var query = getQuery();
+  var found = false;
+
+  query.forEach(ele => {
+    if(ele.Name === obj.Name){
+      found = true;
+    }
+  });
+
+  if(!found){
+    query.push(obj);
+  }
+  console.log(query);
+  var url = "?" + base64.encode(JSON.stringify(query));
+  window.location.search = url;
 }
