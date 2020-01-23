@@ -20,8 +20,8 @@ class App extends Component {
               <TableList></TableList>
               <button>add item</button>
           </div>
-          <Route exact path='/name'>
-
+          <Route exact path='/form'>
+            <MyForm />
           </Route>
         </Router>
       </div>

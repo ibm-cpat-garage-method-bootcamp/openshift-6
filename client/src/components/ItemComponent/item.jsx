@@ -1,13 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TableList from '../ListComponent/list';
-import fs from 'fs';
 import './item.scss';
 
-import {reactLocalStorage} from 'reactjs-localstorage';
-
-
 export default class MyForm extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = { Name: '', Size: '',  Comments: '' };
@@ -18,12 +15,23 @@ export default class MyForm extends React.Component {
     this.clear();
     alert("You are submitting " + Object.entries(this.state));
     console.log("You are submitting " + Object.entries(this.state));
-    var data = reactLocalStorage.getObject('data');
-    console.log(data);
-    data.push({ Name: '', Size: '121',  Comments: '' });
-    reactLocalStorage.setObject('data', data);
-    console.log(data);
   }
+
+  getPath = () => {
+    return this.props.location.pathname;
+  }
+  
+  addQuery = (key, value) => {
+    let pathname = this.getPath();
+   // returns path: '/app/books'
+    let searchParams = new URLSearchParams(props.location.search); 
+   // returns the existing query string: '?type=fiction&author=fahid'
+    searchParams.set(key, value);
+    this.props.history.push({
+             pathname: pathname,
+             search: searchParams.toString()
+       });
+   }
 
   clear = () => {
     this.setState({ Name: '', Size: '',  Comments: '' });
@@ -80,6 +88,6 @@ export default class MyForm extends React.Component {
         <TableList></TableList>
       </div>
       </div>
-    );
+      )
   }
 }
