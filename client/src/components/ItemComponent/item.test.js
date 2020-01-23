@@ -40,5 +40,9 @@ describe('item', ()=> {
         
         var lastItem = data.pop();
         expect(lastItem).toBe(newItem)
+    });
+
+    test('it should append item to url params', () => {
+        
     })
 });

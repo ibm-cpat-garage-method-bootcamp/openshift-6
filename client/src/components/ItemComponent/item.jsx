@@ -2,6 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TableList from '../ListComponent/list';
 import './item.scss';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 var fs = require('fs');
 
 export default class MyForm extends React.Component {
@@ -18,6 +24,17 @@ export default class MyForm extends React.Component {
     this.writeData(data);
   }
 
+  addQuery = (key, value) => {
+    let pathname = props.location.pathname; 
+   // returns path: '/app/books'
+    let searchParams = new URLSearchParams(props.location.search); 
+   // returns the existing query string: '?type=fiction&author=fahid'
+    searchParams.set(key, value);
+    this.props.history.push({
+             pathname: pathname,
+             search: searchParams.toString()
+       });
+   };
   writeData = (data) => {
     var oldData = require('../storeComponent/data.json');
     var newData = Object.assign({}, data, oldData.data);
