@@ -9,20 +9,19 @@ describe('list', () => {
 		expect(true).toEqual(true);
 	});
 
-	/*
-    test('There are rows in the body', () => {
+
+    test('There are four rows in the body', () => {
         const { getByTestId } = render(<TableList />);
         const taElement = getByTestId("body");
-        expect(taElement.children.length).toBe(3);
+        expect(taElement.children.length).toBe(4);
     });
 
-    test('Text is bread', () => {
-        const { getByTestId } = render(<TableList />);
-        const taElement = getByTestId("body");
-        // console.log(breadRow);
-        expect(breadRow.value).toBe("Bread");
-    });
-    */
+    // test('Text is bread', () => {
+    //     const { getByTestId } = render(<TableList />);
+    //     const taElement = getByTestId("body");
+    //     // console.log(breadRow);
+    //     expect(breadRow.value).toBe("Bread");
+    // });
 
 	// test('There is the bread row in the document', () => {
 	//     const { getByTestId } = render(<TableList />);
