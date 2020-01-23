@@ -22,6 +22,10 @@ export default class MyForm extends React.Component {
     console.log(data);
   }
 
+  getPath = () => {
+    return props.location.pathname;
+  }
+  
   addQuery = (key, value) => {
     let pathname = props.location.pathname; 
    // returns path: '/app/books'
