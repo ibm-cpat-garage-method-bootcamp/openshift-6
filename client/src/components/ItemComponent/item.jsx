@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TableList from '../ListComponent/list';
+import  { history } from 'react-router-dom'
+
 import './item.scss';
 
 export default class MyForm extends React.Component {
@@ -14,24 +16,12 @@ export default class MyForm extends React.Component {
     event.preventDefault();
     this.clear();
     alert("You are submitting " + Object.entries(this.state));
-    console.log("You are submitting " + Object.entries(this.state));
+    console.log(getPath());
   }
 
   getPath = () => {
     return this.props.location.pathname;
   }
-  
-  addQuery = (key, value) => {
-    let pathname = this.getPath();
-   // returns path: '/app/books'
-    let searchParams = new URLSearchParams(props.location.search); 
-   // returns the existing query string: '?type=fiction&author=fahid'
-    searchParams.set(key, value);
-    this.props.history.push({
-             pathname: pathname,
-             search: searchParams.toString()
-       });
-   }
 
   clear = () => {
     this.setState({ Name: '', Size: '',  Comments: '' });
@@ -90,4 +80,16 @@ export default class MyForm extends React.Component {
       </div>
       )
   }
+}
+
+function getPath(){
+  return window.location.path;
+}
+
+function addToPath(obj){
+  var charArr = obj.split('');
+  var queries = window.location.search;
+  //remove the /
+  charArr.shift();
+  
 }

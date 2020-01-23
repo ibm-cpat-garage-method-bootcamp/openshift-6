@@ -32,4 +32,5 @@ describe('item', () => {
 		expect(nameInput.value).toContain('');
 		expect(commentInput.value).toContain('');
 	});
+
 });
